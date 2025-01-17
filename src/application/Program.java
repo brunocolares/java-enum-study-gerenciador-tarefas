@@ -50,7 +50,12 @@ public class Program {
 				case 4: {
 					System.out.println("Digite o status desejado da tarefa para listar: ");
 					String status = sc.nextLine();
-					gerenciadorTarefas.exibirTarefasPorStatus(StatusTarefa.valueOf(status));
+					try {
+						gerenciadorTarefas.exibirTarefasPorStatus(StatusTarefa.valueOf(status.toUpperCase()));
+					} catch(IllegalArgumentException e) {
+						System.out.println("Situação inválida, repita o processo.");
+					}
+					
 					break;
 				}
 				case 5: {
